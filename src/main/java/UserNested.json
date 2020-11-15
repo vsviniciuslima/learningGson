@@ -3,7 +3,7 @@
   "email": "vsviniciuslima@gmail.com",
   "age": 20,
   "isDeveloper": true,
-  "userAdress": {
+  "userAddress": {
     "street": "Main Street",
     "houseNumber": "64",
     "city": "Madgeburg",

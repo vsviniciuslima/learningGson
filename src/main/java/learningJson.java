@@ -8,8 +8,8 @@ public class learningJson {
         //deserializeUserSimple();
 
         System.out.println("learningGson 2.0");
-        serializeUserNested();
-        //deserializeUserNested();
+        //serializeUserNested();
+        deserializeUserNested();
     }
 
     private static void serializeUserSimple() {
@@ -41,7 +41,7 @@ public class learningJson {
 
     private static void serializeUserNested() {
 
-        UserAdress adress = new UserAdress(
+        UserAddress adress = new UserAddress(
                 "Main Street",
                 "64",
                 "Madgeburg",
@@ -59,6 +59,29 @@ public class learningJson {
         String json = new Gson().toJson(userNested);
     }
     private static void deserializeUserNested() {
+        String restaurantJson = "{\n" +
+                "  \"name\": \"Future Studio Steakhouse\",\n" +
+                "  \"owner\": {\n" +
+                "    \"name\": \"Christian\",\n" +
+                "    \"address\": {\n" +
+                "      \"city\": \"Madgeburg\",\n" +
+                "      \"country\": \"Germany\",\n" +
+                "      \"houseNumber\": \"42A\",\n" +
+                "      \"street\": \"Main Street\"\n" +
+                "    }\n" +
+                "  },\n" +
+                "  \"cook\": {\n" +
+                "    \"age\": 18,\n" +
+                "    \"name\": \"Marcus\",\n" +
+                "    \"salary\": 1500\n" +
+                "  },\n" +
+                "  \"waiter\": {\n" +
+                "    \"age\": 18,\n" +
+                "    \"name\": \"Norman\",\n" +
+                "    \"salary\": 1000\n" +
+                "  }\n" +
+                "}";
 
+        Restaurant restaurant = new Gson().fromJson(restaurantJson, Restaurant.class);
     }
 }
