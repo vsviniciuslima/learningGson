@@ -5,7 +5,11 @@ public class learningJson {
     public static void main(String[] args) {
 
         //serializeUserSimple();
-        deserializeUserSimple();
+        //deserializeUserSimple();
+
+        System.out.println("learningGson 2.0");
+        serializeUserNested();
+        //deserializeUserNested();
     }
 
     private static void serializeUserSimple() {
@@ -22,7 +26,6 @@ public class learningJson {
         String json = gson.toJson(user);
 
     }
-
     private static void deserializeUserSimple() {
         String source = "{\n" +
                 "  \"name\": \"Guilherme\",\n" +
@@ -34,7 +37,28 @@ public class learningJson {
         Gson gson = new Gson();
 
         UserSimple user2 = gson.fromJson(source, UserSimple.class);
+    }
 
-        System.out.println(user2.getName() + user2.getAge());
+    private static void serializeUserNested() {
+
+        UserAdress adress = new UserAdress(
+                "Main Street",
+                "64",
+                "Madgeburg",
+                "Germany"
+        );
+
+        UserNested userNested = new UserNested(
+                "Vinicius",
+                "vsviniciuslima@gmail.com",
+                20,
+                true,
+                adress
+        );
+
+        String json = new Gson().toJson(userNested);
+    }
+    private static void deserializeUserNested() {
+
     }
 }
