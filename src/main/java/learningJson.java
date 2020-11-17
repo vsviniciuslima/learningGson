@@ -14,15 +14,16 @@ public class learningJson {
         //serializeUserNested();
         //deserializeUserNested();
 
+        Gson gson = new Gson();
+
         Branch root = createNode();
         assemble(root);
-
-        serializeTree(root);
 
         Branch newRoot = serializeTree(root);
         assemble(newRoot);
 
-        Gson gson = new Gson();
+        String output = serializeTreeToString(root);
+
 
         String rootOutput = gson.toJson(root);
         String newRootOutput = gson.toJson(newRoot);
@@ -73,5 +74,17 @@ public class learningJson {
 //        Gson gson2 = gsonBuilder.create();
 
         return modifiedGson.fromJson(jsonObjectOutput, Branch.class);
+    }
+
+    private static String serializeTreeToString(Node root) {
+
+        RuntimeTypeAdapterFactory<Node> typeAdapterFactory = RuntimeTypeAdapterFactory
+                .of(Node.class, "Node.Node Type")
+                .registerSubtype(Branch.class, "Node.Branch")
+                .registerSubtype(Leaf.class, "Node.Leaf");
+
+        Gson modifiedGson = new GsonBuilder().registerTypeAdapterFactory(typeAdapterFactory).create();
+
+        return modifiedGson.toJson(root);
     }
 }

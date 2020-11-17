@@ -12,9 +12,9 @@ public class TreeSerializer {
     public Branch serializeTree(Node root) {
 
         RuntimeTypeAdapterFactory<Node> typeAdapterFactory = RuntimeTypeAdapterFactory
-                .of(Node.class, "Node.Node Type")
-                .registerSubtype(Branch.class, "Node.Branch")
-                .registerSubtype(Leaf.class, "Node.Leaf");
+                .of(Node.class, "Node Type")
+                .registerSubtype(Branch.class, "Branch")
+                .registerSubtype(Leaf.class, "Leaf");
 
         Gson modifiedGson = new GsonBuilder().registerTypeAdapterFactory(typeAdapterFactory).create();
 

@@ -1,0 +1,36 @@
+{
+  "type" : JSON,
+  "content": {
+    "nodes": [
+      {
+        "value": "Novo texto",
+        "nodes": []
+      },
+      {
+        "nodes": [
+          {
+            "value": "de exemplo",
+            "nodes": []
+          },
+          {
+            "value": "para",
+            "nodes": []
+          },
+          {
+            "nodes": [
+              {
+                "value": "assemble",
+                "nodes": []
+              },
+              {
+                "value": "do documento. Horário: 12:18",
+                "nodes": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
+
